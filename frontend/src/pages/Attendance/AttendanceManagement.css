@@ -1,0 +1,49 @@
+
+.attendance-container {
+    padding: 20px;
+    color: #fff;
+
+  }
+
+  .attendance-container hr{
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .add-subject-button{
+    outline: none;
+    border: none;
+    background-color: tomato;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s all;
+  }
+
+  .add-subject-button:hover{
+    background-color: rgb(237, 139, 122);
+  }
+  
+  .subjects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 5% auto;
+  }
+  

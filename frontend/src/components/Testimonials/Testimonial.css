@@ -1,0 +1,143 @@
+
+.testimonials-container {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background-color: #fef6e4; 
+    border-radius: 50px;
+    font-family: 'Arial', sans-serif;
+    min-height: 70vh; 
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .testi-content{
+    background-color: aliceblue;
+    padding: 5% 10% 10%;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  .testi-content .next-btn,.prev-btn{
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .testimonials-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .testimonials-subtitle {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+ 
+  .testimonial-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    gap: 20px;
+    
+  }
+  
+  
+  .prev-btn{
+   position: absolute;
+   left: 5%;
+   top: 50%;
+  }
+  .next-btn{
+   position: absolute;
+   right: 5%;
+   top: 50%;
+  }
+  
+  .prev-btn:hover,
+  .next-btn:hover {
+    background-color: #d17d0d;
+  }
+  
+  /* Testimonial content styling */
+  .testimonial-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 700px;
+    width: 100%;
+  }
+  
+  .testimonial-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #f39c12;
+    object-fit: cover;
+  }
+  
+  .testimonial-text {
+    flex: 1;
+  }
+  
+  .testimonial-review {
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .testimonial-role {
+    font-size: 14px;
+    color: #f39c12;
+  }
+
+  .add-testimonial-btn {
+    margin-top: 30px;
+    background-color: #f39c12;
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 35%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .add-testimonial-btn:hover {
+    background-color: #d17d0d;
+    transform: translateY(-2px);
+  }
+
+  .fa{
+    color: #f39c12;
+  }
+
+ 

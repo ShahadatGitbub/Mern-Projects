@@ -1,0 +1,110 @@
+.how-it-works {
+    text-align: center;
+    padding: 60px 30px;
+    color: white;
+    background-color: #050113;
+    width: 90%;
+    margin: auto;
+    border-radius: 50px;
+    border: 1px solid #11003f; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); 
+    transition: 0.3s all;
+    animation: FadeIn 2s ease-in-out;
+    position: relative;
+}
+
+
+.how-it-works h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.how-it-works .description {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    position: relative;
+}
+
+.step {
+    text-align: center;
+    max-width: 220px;
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffcc00;
+    color: #020008;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 60px;
+    margin: 0 auto 20px auto;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.step p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.step button{
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #0d0144; /* Button color matching theme */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.step button:hover{
+    background-color: #ffcc00;
+}
+
+.step-connector {
+    width: 80px;
+    height: 2px;
+    background-color: #ffcc00;
+    position: relative;
+    margin-top: 25px;
+}
+
+.step-connector::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -8px;
+}
+
+.step-connector:last-of-type {
+    display: none;
+}

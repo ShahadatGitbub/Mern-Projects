@@ -1,0 +1,152 @@
+
+.about-page {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-banner {
+  text-align: center;
+  background: linear-gradient(45deg, #6a1b9a, #f06292);
+  color: white;
+  padding: 80px 20px;
+  border-radius: 15px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+}
+
+.about-banner h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.about-banner p {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+/* Section Styling */
+.section {
+  background-color: #fff;
+  padding: 50px 30px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.section:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #6a1b9a;
+}
+
+/* Flex Layout for Vision & Mission */
+.about-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.half {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Founder Section */
+.founder-info {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.founder-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.founder-details h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.founder-details p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-top: 80px;
+}
+
+.faq-heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #6a1b9a;
+  margin-bottom: 30px;
+}
+
+.faq-list {
+  list-style: none;
+}
+
+.faq-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.faq-item.open {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.faq-question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2e2e2e;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  font-size: 1rem;
+  color: #666;
+  display: none;
+  margin-top: 10px;
+}
+
+.faq-answer.visible {
+  display: block;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: #ff9800;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question:hover {
+  color: #ff9800;
+}

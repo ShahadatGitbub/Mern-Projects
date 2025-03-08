@@ -1,0 +1,153 @@
+.subject-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #08041c;
+    color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    text-align: center;
+}
+
+
+.subject-title h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.attendance-data-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.attendance-data {
+    text-align: left;
+}
+
+.attendance-data p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.attendance-data span {
+    font-weight: bold;
+    margin-left: 5px;
+    color: rgb(217, 190, 154);
+    
+}
+
+.attendance-report-circle {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.attendance-report-circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.attendance-report-circle circle {
+  fill: none;
+  stroke-width: 15;
+}
+
+.attendance-report-circle .progress-circle {
+  stroke: #4caf50;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.attendance-report-circle text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #fff;
+}
+
+
+.attendance-control-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.attendace-btns {
+    display: flex;
+    gap: 0;
+    background: #070026; 
+    border-radius: 15px;
+    overflow: hidden; 
+  }
+  
+  .attendace-btns button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .attendace-btns button:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.3); 
+  }
+  
+  .attendace-btns button:hover {
+    background: #ffee00;
+    color: black;
+  }
+
+  .remove-subject-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .remove-subject-btn button {
+    background: rgb(255, 5, 5); 
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  .reset-subject-btn button{
+    background: #ffee00;
+    color: #070026;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  .reset-subject-btn button:hover{
+    transform: scale(1.05);
+    background: rgb(79, 246, 84);
+  }
+  
+  .remove-subject-btn button:hover {
+    background: rgb(200, 0, 0); 
+    transform: scale(1.05);
+  }
+  
+  
