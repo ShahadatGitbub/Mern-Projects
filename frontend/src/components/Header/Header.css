@@ -32,8 +32,9 @@ animation: FadeIn 2s ease-in-out;
   color: #040221; /* Slightly lighter shade for the text */
 }
 
-.explore-btn {
+.header .explore-btn {
   padding: 12px 30px;
+  width: 250px;
   font-size: 18px;
   background-color: #070026; /* Button color matching theme */
   color: white;

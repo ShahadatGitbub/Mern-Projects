@@ -7,8 +7,7 @@ import mongoDBConnection from './config/dbConnection.js';
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import testimonialRouter from './routes/testimonial.router.js';
-import fs from 'fs';
-import path from 'path';
+import subjectRouter from './routes/subjectRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -18,7 +17,7 @@ mongoDBConnection();
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = [process.env.CLIENT_URL || 'http://localhost:5173', 'http://localhost:5175'];
+const allowedOrigins = [process.env.CLIENT_URL || 'http://localhost:5174', 'http://localhost:5175'];
 app.use(
   cors({
     origin: allowedOrigins,
@@ -32,7 +31,15 @@ app.use('/uploads', express.static('uploads'));
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
+
+//accesing profilepic in frontend
+app.use('/profile-images', express.static('uploads/users'));
+ //we can access profile pics by localhost:4000/profile-images/{filename}
+
 app.use('/api/testimonials', testimonialRouter);
+app.use('/api/subjects', subjectRouter);
+
+
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'API is working!' });

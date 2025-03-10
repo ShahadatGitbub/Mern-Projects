@@ -1,92 +1,120 @@
-/* LoginPage.css */
 .login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-page .login-page-container {
-    background: #ebaeae;
-    padding: 20px;
-    border-radius: 18px;
-    width: 350px;
-    text-align: center;
-  }
-  
-  .login-page .login-page-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .login-page .login-page-title h2 {
-    margin: 0 auto;
-  }
-  
- 
-  
-  .login-page .login-page-inputs input {
-    width: 100%;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 24px;
-    border: 1px solid #ccc;
-    background: transparent;
-    color: #000;
-  }
-  .login-page .login-page-inputs input::placeholder {
-   color: #000;
-   margin-left: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e6eef9, #f0f4f8); /* Gradient background */
+  padding: 20px;
+}
 
-  
-  .login-page button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 20px auto;
-  }
-  
-  .login-page button:hover {
-    background-color: #0056b3;
-  }
-  
-  .login-page-text {
-    margin-top: 20px;
-  }
+.login-page .login-page-container {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
 
-  .login-page span {
-    color: blue;
-    cursor: pointer;
-  }
-  
-  .login-page span:hover {
-    text-decoration: underline;
-  }
-  
+.login-page .login-page-container:hover {
+  transform: translateY(-5px);
+}
 
-  .spinner {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid white;
-    border-radius: 50%;
-    border-top: 2px solid transparent;
-    animation: spin 0.8s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  button:disabled {
-    background-color: #ccc; /* Greyed out button */
-    cursor: not-allowed;
-  }
-  
+.login-page .login-page-title h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.login-page .login-page-inputs {
+  margin-bottom: 20px;
+}
+
+.login-page .input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-page .input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.login-page .input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #d3e0ea;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f9fbfd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-page .input-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.login-page button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-page button:hover:not(:disabled) {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.login-page button:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-page button .spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.login-page .login-page-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #34495e;
+}
+
+.login-page .login-page-text span {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.login-page .login-page-text span:hover {
+  color: #0056b3;
+}

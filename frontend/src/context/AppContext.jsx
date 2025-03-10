@@ -8,61 +8,84 @@ export const AppContextProvider = (props) => {
     axios.defaults.withCredentials = true;
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [userData, setUserData] = useState(null); // ✅ Ensure it's initially null, not false
+    const [userData, setUserData] = useState(null);
+    const [userId, setUserId] = useState(null);
+    const [profilePic, setProfilePic] = useState(""); // Stores the filename of the profile picture
 
     const getAuthState = async () => {
         try {
             const response = await axios.get(`${backendUrl}/api/auth/is-auth`);
-            
+
             if (response.data.success) {
                 setIsLoggedIn(true);
-                await getUserData();  // ✅ Call only if authenticated
+                await getUserData();
+            } else {
+                setIsLoggedIn(false);
+                setUserId(null);
+                setProfilePic(""); 
             }
         } catch (error) {
-            console.error("Auth verification failed:", error?.response?.data?.message || error.message);
-            
-            if (error.response?.status !== 401) { 
-                toast.error(error.response?.data?.message || "Failed to verify authentication.");
-            }
+            setIsLoggedIn(false);
+            setUserId(null);
+            setProfilePic("");
+            toast.error("Failed to authenticate user.");
         }
     };
-    
-    
 
     const getUserData = async () => {
         try {
             const response = await axios.get(`${backendUrl}/api/user/user-details`);
-            
+
             if (response.data.success) {
                 setUserData(response.data.userData);
+                setUserId(response.data.userData._id);
+                getProfilePic(response.data.userData._id); // Call getProfilePic after userId is set
             } else {
-                toast.error("User data not found:", response.data.message);
+                toast.error("User data not found: " + response.data.message);
             }
         } catch (error) {
-            console.error("Error fetching user data:", error.message);
-            
             if (error.response?.status !== 401) {
                 toast.error(error.response?.data?.message || "Failed to fetch user data.");
             }
         }
     };
-    
+
+    const getProfilePic = async (userId) => {
+        try {
+            if (!userId) return;
+
+            const response = await axios.get(`${backendUrl}/api/user/get-profile-pic/${userId}`);
+
+            if (response.data.success) {
+                setProfilePic(response.data.filename); // Store just the filename
+            } else {
+                setProfilePic("");
+            }
+        } catch (error) {
+            setProfilePic("");
+        
+        }
+    };
+
     useEffect(() => {
         getAuthState();
     }, []);
 
     const value = {
-         backendUrl, 
-         isLoggedIn, 
-         setIsLoggedIn, 
-         userData, 
-         setUserData, 
-         getUserData 
-        
-        };
+        backendUrl,
+        isLoggedIn,
+        setIsLoggedIn,
+        userData,
+        setUserData,
+        getUserData,
+        userId,
+        profilePic,       // Provide the profilePic filename
+        setProfilePic,    // Expose setProfilePic to allow updates
+        getProfilePic,    // Expose getProfilePic for manual fetching if needed
+    };
 
     return (
-        <AppContext.Provider value={{ backendUrl, isLoggedIn, setIsLoggedIn, userData, setUserData, getUserData }}>
+        <AppContext.Provider value={value}>
             {props.children}
         </AppContext.Provider>
     );

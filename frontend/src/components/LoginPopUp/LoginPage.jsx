@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./LoginPage.css"; 
+import "./LoginPage.css";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
 
@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setCurrLoginState(location.pathname === "/register" ? "Sign Up" : "Login");
@@ -40,7 +40,7 @@ const LoginPage = () => {
           navigate("/login");
         } else {
           setIsLoggedIn(true);
-          await getUserData(); 
+          await getUserData();
           navigate("/");
         }
       } else {
@@ -49,7 +49,7 @@ const LoginPage = () => {
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -62,22 +62,61 @@ const LoginPage = () => {
 
         <div className="login-page-inputs">
           {currLoginState === "Sign Up" && (
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your Name" required />
+            <div className="input-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your Name"
+                required
+                autoComplete="off"
+              />
+            </div>
           )}
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email" required />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your password" required />
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+              required
+              autoComplete="off"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
+              required
+              autoComplete="new-password"
+            />
+          </div>
         </div>
 
         <button type="submit" disabled={loading}>
           {loading ? <span className="spinner"></span> : currLoginState === "Sign Up" ? "Create Account" : "Login"}
         </button>
 
+        {currLoginState === "Login" && (
+          <p className="login-page-text">
+            <span onClick={() => navigate("/verification/reset-password")}>Forgot Password? Click here</span>
+          </p>
+        )}
+
         {currLoginState === "Sign Up" ? (
           <p className="login-page-text">
             Already have an account? <span onClick={() => navigate("/login")}>Click Here</span>
           </p>
         ) : (
-          <p>
+          <p className="login-page-text">
             Don't have an account? <span onClick={() => navigate("/register")}>Create here</span>
           </p>
         )}

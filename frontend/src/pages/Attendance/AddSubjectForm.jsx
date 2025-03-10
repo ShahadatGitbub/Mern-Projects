@@ -1,46 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './AddSubjectForm.module.css';
 import add from '../../assets/add.png';
 import remove from '../../assets/remove_icon_red.png';
+import axios from 'axios';
+import { AppContext } from '../../context/AppContext';
+import { toast } from 'react-toastify';
 
 const AddSubjectForm = ({ isOpen, closeModal, fetchSubjects }) => {
   const [subjectName, setSubjectName] = useState('');
   const [attended, setAttended] = useState(0);
   const [missed, setMissed] = useState(0);
+  const [loading, setLoading] = useState(false); // Add loading state
+  const { backendUrl, userId } = useContext(AppContext);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (subjectName.trim() === '') return;
-
-    const newSubject = {
-      subject_name: subjectName,
-      classes_attended: attended,
-      classes_missed: missed,
-    };
-
     try {
-      const response = await fetch('http://localhost:5000/api/subjects', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newSubject),
+      if (!userId) {
+        toast.error("User ID is missing. Please log in again.");
+        return;
+      }
+
+      setLoading(true); // Start loading
+
+      const response = await axios.post(`${backendUrl}/api/subjects/add-subject`, {
+        userId,
+        subjectName,
+        attended,
+        missed
       });
 
-      if (response.ok) {
-        fetchSubjects(); // Refresh subjects
+      if (response.status === 201) {
+        toast.success(response.data.message);
+        if (fetchSubjects) fetchSubjects();
         closeModal();
         setSubjectName('');
         setAttended(0);
         setMissed(0);
-      } else {
-        console.error('Failed to add subject');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error adding subject:', error);
+      toast.error(error.response?.data?.message || "Failed to add subject.");
+    } finally {
+      setLoading(false); // Stop loading regardless of success or error
     }
   };
-
+  
   return (
     isOpen && (
       <div className={styles.addSubjectModalOverlay}>
@@ -85,8 +91,16 @@ const AddSubjectForm = ({ isOpen, closeModal, fetchSubjects }) => {
             </div>
 
             <div className={styles.addSubjectModalButtons}>
-              <button type="submit">Add Subject</button>
-              <button type="button" onClick={closeModal}>Cancel</button>
+              <button type="submit" disabled={loading}>
+                {loading ? (
+                  <span className={styles.loader}></span> // CSS-based loader
+                ) : (
+                  "Add Subject"
+                )}
+              </button>
+              <button type="button" onClick={closeModal} disabled={loading}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>

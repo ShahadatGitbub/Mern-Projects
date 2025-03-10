@@ -1,0 +1,137 @@
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a2a44, #1e3a5f); /* Deeper bluish-dark gradient */
+  padding: 40px 20px;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.contact-page .contact-container {
+  background: rgba(26, 42, 68, 0.8); /* Stronger bluish-dark with higher opacity */
+  backdrop-filter: blur(15px); /* Enhanced glassmorphism effect */
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+  border: 1px solid rgba(0, 196, 255, 0.3); /* Subtle blue border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-page .contact-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 50px rgba(0, 196, 255, 0.3); /* Enhanced hover shadow with blue tint */
+}
+
+.contact-page .contact-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #00d4ff; /* Brighter blue accent */
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow for premium look */
+}
+
+.contact-page .contact-subtitle {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #a3bffa; /* Lighter, more vibrant bluish-gray */
+  text-align: center;
+  line-height: 1.5;
+}
+
+.contact-page .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-page .form-group {
+  text-align: left;
+}
+
+.contact-page .form-group label {
+  display: block;
+  font-size: 14px;
+  color: #a3bffa;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.contact-page .form-group input,
+.contact-page .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgba(0, 196, 255, 0.3); /* Subtle blue border */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Lighter input background */
+  color: #ffffff;
+  font-size: 14px;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-page .form-group input:focus,
+.contact-page .form-group textarea:focus {
+  border-color: #00d4ff; /* Brighter blue on focus */
+  background: rgba(255, 255, 255, 0.2); /* Slightly lighter background on focus */
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); /* Vibrant glow effect */
+  outline: none;
+}
+
+.contact-page .form-group textarea {
+  resize: vertical;
+}
+
+.contact-page .contact-btn {
+  padding: 12px;
+  background: #00d4ff; /* Brighter blue button */
+  color: #1a2a44; /* Darker text for contrast */
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.contact-page .contact-btn:hover {
+  background: #00b7e6; /* Slightly darker hover state */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5); /* Enhanced shadow on hover */
+}
+
+.contact-page .contact-info {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contact-page .info-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #00d4ff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-page .info-item {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #a3bffa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-page .info-item i {
+  color: #00d4ff;
+  font-size: 18px;
+}
+
+/* Font Awesome (or any icon library) is assumed to be included */
+.contact-page .fas {
+  font-size: 18px;
+}

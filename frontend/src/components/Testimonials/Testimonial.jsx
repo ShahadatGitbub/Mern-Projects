@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 
 const Testimonial = () => {
-  const [testimonials, setTestimonials] = useState([]); 
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -93,11 +93,21 @@ const renderStars = (rating) => {
   let halfStar = rating % 1 >= 0.5 ? 1 : 0;
   let emptyStars = 5 - fullStars - halfStar;
 
-  return [
-    ...Array(fullStars).fill(<i className="fa fa-star"></i>),
-    halfStar ? <i className="fa fa-star-half-alt"></i> : null,
-    ...Array(emptyStars).fill(<i className="fa fa-star-o"></i>)
-  ].filter(Boolean);
+  return (
+    <>
+      {Array(fullStars)
+        .fill()
+        .map((_, index) => (
+          <i key={`full-${index}`} className="fa fa-star"></i>
+        ))}
+      {halfStar ? <i key="half" className="fa fa-star-half-alt"></i> : null}
+      {Array(emptyStars)
+        .fill()
+        .map((_, index) => (
+          <i key={`empty-${index}`} className="fa fa-star-o"></i>
+        ))}
+    </>
+  );
 };
 
 export default Testimonial;

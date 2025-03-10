@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./About.css";
-import founder from '../../assets/founder.png';
+import founder from '/founder.jpg';
 import faqs from '../../assets/faq';
 
+
+
 const About = () => {
-  const [openFaq, setOpenFaq] = useState(null); 
+  const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -19,6 +21,21 @@ const About = () => {
       </div>
 
       <div className="about-content">
+      <section className="section founder">
+          <h2 className="section-heading">Website Owner & Creator</h2>
+          <div className="founder-info">
+            <div className="founder-image">
+              <img src={founder} alt="Founder" />
+            </div>
+            <div className="founder-details">
+              <h3>Shahadat Ali</h3>
+              <p>
+                I am currently pursuing a Bachelor of Technology (B.Tech) in Computer Science and Engineering (CSE) at the National Institute of Technology (NIT) Silchar. As a proud alumnus of Jawahar Navodaya Vidyalaya (JNV) Barpeta, where I completed my schooling from classes 6 to 12, I have always been passionate about leveraging technology to solve real-world problems. With an expected graduation year of 2027, I am dedicated to developing innovative solutions like Campus360 to enhance student experiences and simplify academic life.
+              </p>
+            </div>
+          </div>
+        </section>
+        
         {/* Who We Are */}
         <section className="section">
           <h2 className="section-heading">Who We Are</h2>
@@ -43,21 +60,8 @@ const About = () => {
           </section>
         </div>
 
-        {/* Founder */}
-        <section className="section founder">
-          <h2 className="section-heading">Our Founder</h2>
-          <div className="founder-info">
-            <div className="founder-image">
-              <img src={founder} alt="Founder" />
-            </div>
-            <div className="founder-details">
-              <h3>Shahadat Ali</h3>
-              <p>
-                I am currently pursuing a Bachelor of Technology (B.Tech) in Computer Science and Engineering (CSE) at the National Institute of Technology (NIT) Silchar. As a proud alumnus of Jawahar Navodaya Vidyalaya (JNV) Barpeta, where I completed my schooling from classes 6 to 12, I have always been passionate about leveraging technology to solve real-world problems. With an expected graduation year of 2027, I am dedicated to developing innovative solutions like Campus360 to enhance student experiences and simplify academic life.
-              </p>
-            </div>
-          </div>
-        </section>
+       
+       
       </div>
 
       {/* FAQ Section */}
@@ -68,7 +72,7 @@ const About = () => {
             <div key={index} className={`faq-item ${openFaq === index ? "open" : ""}`}>
               <div className="faq-question" onClick={() => toggleFaq(index)}>
                 {faq.question}
-                <span className="faq-icon">{openFaq === index ? "-" : "+"}</span>
+                <span className="faq-icon">{openFaq === index ? "−" : "+"}</span>
               </div>
               <div className={`faq-answer ${openFaq === index ? "visible" : ""}`}>
                 {faq.answer}

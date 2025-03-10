@@ -1,0 +1,116 @@
+/* Materials.css */
+
+.materials-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+  }
+  
+  .construction-wrapper {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .construction-icon {
+    margin-bottom: 20px;
+  }
+  
+  .construction-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0 0 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+  }
+  
+  .construction-message {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin: 0 0 30px;
+    line-height: 1.5;
+  }
+  
+  .construction-progress {
+    width: 80%;
+    height: 10px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto 30px;
+  }
+  
+  .progress-bar {
+    width: 60%; /* Static for now; could be dynamic */
+    height: 100%;
+    background: #f39c12;
+    animation: progress 2s infinite alternate;
+  }
+  
+  .back-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .back-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .back-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes progress {
+    from {
+      width: 40%;
+    }
+    to {
+      width: 80%;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .construction-wrapper {
+      padding: 20px;
+    }
+  
+    .construction-title {
+      font-size: 2rem;
+    }
+  
+    .construction-message {
+      font-size: 1rem;
+    }
+  
+    .back-btn {
+      padding: 10px 20px;
+    }
+  }

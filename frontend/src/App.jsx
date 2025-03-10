@@ -8,43 +8,46 @@ import Footer from "./components/Footer/Footer";
 import LoginPage from "./components/LoginPopUp/LoginPage";
 import AttendanceManagement from "./pages/Attendance/AttendanceManagement";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // ✅ Import Toastify CSS
+import "react-toastify/dist/ReactToastify.css";
 import ProfileCard from "./pages/Profile/ProfileCard";
 import TestimonialPage from "./pages/Testimonials/TestimonialPage";
+import VerificationResetPage from "./pages/verificationResetPage/VerificationResetPage";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <ToastContainer
-  position="top-center"
-  autoClose={3000}
-  hideProgressBar={false}
-  newestOnTop={true}
-  closeOnClick
-  rtl={false}
-  pauseOnFocusLoss={false}
-  draggable
-  pauseOnHover
-  closeButton={false} 
-  toastStyle={{
-    borderRadius: "15px",
-    minHeight: "50px",
-    fontSize: "14px",
-    padding: "10px 16px",
-  }}
-/>
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        closeButton={false}
+        toastStyle={{
+          borderRadius: "15px",
+          minHeight: "50px",
+          fontSize: "14px",
+          padding: "10px 16px",
+        }}
+      />
 
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<LoginPage />} />
-        <Route path ="/profile" element = {<ProfileCard/>}></Route>
-        <Route path ="/add-testimonials" element = {<TestimonialPage/>}></Route>
+        <Route path="/profile" element={<ProfileCard />} />
+        <Route path="/add-testimonials" element={<TestimonialPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/attendance" element={<AttendanceManagement />} />
         <Route path="/materials" element={<Materials />} />
         <Route path="/contact" element={<Contact />} />
+        {/* Update the verification route to match sub-paths */}
+        <Route path="/verification/*" element={<VerificationResetPage />} />
       </Routes>
       <Footer />
     </div>

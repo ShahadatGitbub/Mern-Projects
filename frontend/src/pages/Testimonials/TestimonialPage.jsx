@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 const TestimonialPage = () => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
-  const [image, setImage] = useState(null); // Store the file object, not the value
+  const [image, setImage] = useState(null);
   const [testimonial, setTestimonial] = useState('');
   const [rating, setRating] = useState('');
   const [loading, setLoading] = useState(false);
 
   const { backendUrl } = useContext(AppContext);
-  const navigate = useNavigate(); // Fix: Invoke the hook
+  const navigate = useNavigate();
 
   const submitTestimonial = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const TestimonialPage = () => {
       const formData = new FormData();
       formData.append('name', name);
       formData.append('role', role);
-      formData.append('image', image); // Append the file
+      formData.append('image', image);
       formData.append('testimonial', testimonial);
       formData.append('rating', rating);
 
@@ -33,7 +33,7 @@ const TestimonialPage = () => {
         testimonial,
         rating,
         image: image ? image.name : 'No file',
-      }); // Debug: Log form data
+      });
 
       const response = await axios.post(`${backendUrl}/api/testimonials/add-testimonials`, formData, {
         headers: {
@@ -41,7 +41,7 @@ const TestimonialPage = () => {
         },
       });
 
-      console.log('Backend response:', response.data); // Debug: Log response
+      console.log('Backend response:', response.data);
 
       if (response.data.success) {
         toast.success('Testimonial submitted successfully');
@@ -50,7 +50,7 @@ const TestimonialPage = () => {
         toast.error(response.data.message);
       }
     } catch (error) {
-      console.error('Submission error:', error.response?.data || error.message); // Debug: Log error
+      console.error('Submission error:', error.response?.data || error.message);
       toast.error(error.response?.data?.message || 'Something went wrong');
     } finally {
       setLoading(false);
@@ -91,7 +91,7 @@ const TestimonialPage = () => {
                 <input
                   type="file"
                   id="image"
-                  onChange={(e) => setImage(e.target.files[0])} // Get the file object
+                  onChange={(e) => setImage(e.target.files[0])}
                   accept="image/*"
                   required
                 />
@@ -129,7 +129,11 @@ const TestimonialPage = () => {
 
               <div className="submit-btn">
                 <button type="submit" disabled={loading}>
-                  {loading ? 'Submitting...' : 'Submit Testimonial'}
+                  {loading ? (
+                    <span className="loader"></span> // CSS-based loader
+                  ) : (
+                    'Submit Testimonial'
+                  )}
                 </button>
               </div>
             </form>
