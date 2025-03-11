@@ -28,7 +28,6 @@ export const AppContextProvider = (props) => {
             setIsLoggedIn(false);
             setUserId(null);
             setProfilePic("");
-            toast.error("Failed to authenticate user.");
         }
     };
 
@@ -79,9 +78,9 @@ export const AppContextProvider = (props) => {
         setUserData,
         getUserData,
         userId,
-        profilePic,       // Provide the profilePic filename
-        setProfilePic,    // Expose setProfilePic to allow updates
-        getProfilePic,    // Expose getProfilePic for manual fetching if needed
+        profilePic,       
+        setProfilePic,    
+        getProfilePic,    
     };
 
     return (

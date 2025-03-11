@@ -9,8 +9,12 @@ import userRouter from './routes/userRoutes.js';
 import testimonialRouter from './routes/testimonial.router.js';
 import subjectRouter from './routes/subjectRoutes.js';
 
+import path from 'path'
+
 const app = express();
 const port = process.env.PORT || 4000;
+
+const _dirname = path.resolve();
 
 mongoDBConnection();
 
@@ -39,7 +43,10 @@ app.use('/profile-images', express.static('uploads/users'));
 app.use('/api/testimonials', testimonialRouter);
 app.use('/api/subjects', subjectRouter);
 
-
+app.use(express.static(path.join(_dirname, "/frontend/dist")))
+app.get("*", (req,res) =>{
+  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"))
+})
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'API is working!' });
