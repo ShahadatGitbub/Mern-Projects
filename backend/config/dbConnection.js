@@ -5,7 +5,7 @@ const mongoDBConnection = async ()=>{
         console.log("DB CONNECTED")
     })
 
-    await mongoose.connect("mongodb+srv://Shahadat:Shahadat123@cluster0.3gspl.mongodb.net/Campus360")
+    await mongoose.connect(process.env.MONGO_URI)
 }
 
 export default mongoDBConnection;
